@@ -22,12 +22,12 @@ namespace Application.Features.Technologies.Rules
         public async Task TechnologyNameCanNotBeDuplicatedWhenInsterted(string name)
         {
             IPaginate<Technology> result = await _technologyRepository.GetListAsync(p => p.Name == name);
-            if (result.Items.Any()) throw new BusinessException("Programming language name exits");
+            if (result.Items.Any()) throw new BusinessException("technology name exits");
         }
 
         public void TechnologyShouldExistWhenRequested(Technology technology)
         {
-            if (technology == null) throw new BusinessException("Requsted programming language does not exist");
+            if (technology == null) throw new BusinessException("Requsted technology does not exist");
         }
     }
 }

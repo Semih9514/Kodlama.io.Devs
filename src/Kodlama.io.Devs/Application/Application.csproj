@@ -20,7 +20,10 @@
 
   <ItemGroup>
     <Folder Include="Features\Languages\Commands\DeleteLanguage\Validator\" />
+    <Folder Include="Features\Socials\Commands\DeleteSocial\Validator\" />
     <Folder Include="Features\Technologies\Commands\DeleteTechnology\Validator\" />
+    <Folder Include="Features\Developers\Models\" />
+    <Folder Include="Features\Developers\Queries\" />
   </ItemGroup>
   
 </Project>

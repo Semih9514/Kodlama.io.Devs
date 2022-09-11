@@ -1,6 +1,9 @@
-﻿using Application.Features.Languages.Rules;
+﻿using Application.Features.Developers.Rules;
+using Application.Features.Languages.Rules;
+using Application.Features.Socials.Rules;
 using Application.Features.Technologies.Rules;
 using Core.Application.Pipelines.Validation;
+using Core.Security.JWT;
 using FluentValidation;
 using MediatR;
 using Microsoft.Extensions.DependencyInjection;
@@ -23,6 +26,9 @@ namespace Application
 
             services.AddScoped<LanguageBusinessRules>();
             services.AddScoped<TechnologyBusinessRules>();
+            services.AddScoped<DeveloperBusinessRules>();
+            services.AddScoped<SocialBusinessRules>();
+            services.AddScoped<ITokenHelper, JwtHelper>();
 
             services.AddValidatorsFromAssembly(Assembly.GetExecutingAssembly());
             //services.AddTransient(typeof(IPipelineBehavior<,>), typeof(AuthorizationBehavior<,>));

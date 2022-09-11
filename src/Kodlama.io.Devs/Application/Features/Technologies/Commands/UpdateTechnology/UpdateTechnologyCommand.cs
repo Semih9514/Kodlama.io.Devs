@@ -16,7 +16,7 @@ namespace Application.Features.Technologies.Commands.UpdateTechnology
     {
         public int Id { get; set; }
         public string Name { get; set; }
-
+        public int LanguageId { get; set; }
         public class DeleteTechnologyCommandHandler : IRequestHandler<UpdateTechnologyCommand, UpdatedTechnologyDto>
         {
             private readonly ITechnologyRepository _technologyRepository;

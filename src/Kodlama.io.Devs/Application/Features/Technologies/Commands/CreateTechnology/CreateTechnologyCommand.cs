@@ -15,7 +15,7 @@ namespace Application.Features.Technologies.Commands.CreateTechnology
     public class CreateTechnologyCommand : IRequest<CreatedTechnologyDto>
     {
         public string Name { get; set; }
-
+        public int LanguageId { get; set; }
         public class CreateTechnologyCommandHandler : IRequestHandler<CreateTechnologyCommand, CreatedTechnologyDto>
         {
             private readonly ITechnologyRepository _technologyRepository;
