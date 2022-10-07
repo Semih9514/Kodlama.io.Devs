@@ -19,6 +19,7 @@ namespace Persistence.Contexts
         public DbSet<Social> Socials { get; set; }
         public DbSet<UserOperationClaim> UserOperationClaims { get; set; }
         public DbSet<OperationClaim> OperationClaims { get; set; }
+        public  DbSet<RefreshToken> RefreshTokens { get; set; }
         public BaseDbContext(DbContextOptions dbContextOptions, IConfiguration configuration) : base(dbContextOptions)
         {
             Configuration = configuration;

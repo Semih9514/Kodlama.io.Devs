@@ -1,7 +1,9 @@
-﻿using Application.Features.Developers.Rules;
+﻿using Application.Features.Auths.Rules;
+using Application.Features.Developers.Rules;
 using Application.Features.Languages.Rules;
 using Application.Features.Socials.Rules;
 using Application.Features.Technologies.Rules;
+using Application.Services.AuthService;
 using Core.Application.Pipelines.Validation;
 using Core.Security.JWT;
 using FluentValidation;
@@ -28,7 +30,8 @@ namespace Application
             services.AddScoped<TechnologyBusinessRules>();
             services.AddScoped<DeveloperBusinessRules>();
             services.AddScoped<SocialBusinessRules>();
-            services.AddScoped<ITokenHelper, JwtHelper>();
+            services.AddScoped<AuthBusinessRules>();
+            //services.AddScoped<ITokenHelper, JwtHelper>();
 
             services.AddValidatorsFromAssembly(Assembly.GetExecutingAssembly());
             //services.AddTransient(typeof(IPipelineBehavior<,>), typeof(AuthorizationBehavior<,>));
@@ -36,6 +39,8 @@ namespace Application
             //services.AddTransient(typeof(IPipelineBehavior<,>), typeof(CacheRemovingBehavior<,>));
             //services.AddTransient(typeof(IPipelineBehavior<,>), typeof(LoggingBehavior<,>));
             services.AddTransient(typeof(IPipelineBehavior<,>), typeof(RequestValidationBehavior<,>));
+
+            services.AddScoped<IAuthService, AuthManager>();
 
             return services;
 
